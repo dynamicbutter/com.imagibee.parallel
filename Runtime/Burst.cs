@@ -1,7 +1,7 @@
 // These Burst settings can be overridden by a project's pre-processor defines
 
 namespace Imagibee.Parallel {
-    public class Burst
+    public struct Burst
     {
 #if IMAGIBEE_PARALLEL_FLOATMODE_DEFAULT
         public const Unity.Burst.FloatMode FloatMode = Unity.Burst.FloatMode.Default;

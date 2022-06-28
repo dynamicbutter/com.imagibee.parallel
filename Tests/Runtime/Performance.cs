@@ -16,7 +16,7 @@ public class Performance {
         Measure.Method(() =>
         {
             for (var i = 0; i < YCOUNT; ++i) {
-                var r = Functions.Pcc(x, y);
+                var r = Baseline.Pcc(x, y);
             }
         }).SampleGroup($"Baseline Pcc Original (length={LENGTH}, ycount={YCOUNT})").Run();
     }
@@ -32,7 +32,7 @@ public class Performance {
             }
             Measure.Method(() =>
             {
-                var r = Functions.Pcc(x, y);
+                var r = Baseline.Pcc(x, y);
             }).SampleGroup($"Baseline Pcc (length={LENGTHS[k]}, ycount={YCOUNTS[k]})").Run();
         }
     }

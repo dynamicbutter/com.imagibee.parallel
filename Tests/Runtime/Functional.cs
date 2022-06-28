@@ -31,7 +31,7 @@ public class Functional
         var y = new float[2][];
         y[0] = new float[] { 1, 2, 3, 4, 5 };
         y[1] = new float[] { -1, -2, -3, -4, -5 };
-        var results = Functions.Pcc(x, y);
+        var results = Baseline.Pcc(x, y);
         Assert.AreEqual(results[0], 1f);
         Assert.AreEqual(results[1], -1f);
     }
@@ -42,7 +42,7 @@ public class Functional
         var x = new float[] { 1, 1, 1, 1, 1 };
         var y = new float[] { 1, 2, 3, 4, 5, -1, -2, -3, -4, -5 };
         var results = new List<float>();
-        var pccJob = new PccJob();
+        PccJob pccJob = new PccJob();
         pccJob.Allocate(x.Length, y.Length / x.Length);
         pccJob.CopyToX(x, 0);
         pccJob.Y.CopyFrom(y);
@@ -72,7 +72,7 @@ public class Functional
         pccJob.Y.CopyFrom(y);
         pccJob.Schedule().Complete();
         var result = pccJob.R[0];
-        var resultBaseline = Functions.Pcc(x, y);
+        var resultBaseline = Baseline.Pcc(x, y);
         Debug.Log($"PccJob correlation is {result} (baseline is {resultBaseline})");
         pccJob.Dispose();
         Assert.LessOrEqual(result, 1f);

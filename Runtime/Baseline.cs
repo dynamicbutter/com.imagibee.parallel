@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Imagibee.Parallel {
     // Only intended to form a baseline for testing
-    public class Functions {
+    public class Baseline {
         // Returns the sum of the array
         public static float Sum(float[] x)
         {
